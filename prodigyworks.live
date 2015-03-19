@@ -1,0 +1,8 @@
+; ProdigyWorks configuration file
+DB_HOST = "83.222.229.27"
+DB_USER = "dtcrmuser"
+DB_PASSWORD = "KwdC5yWtFn"
+DB_DATABASE = "dtcrmdb"
+DB_PREFIX = "datatech_"
+MAIL_DAEMON = "SendMail"
+DEV_ENV = "false"

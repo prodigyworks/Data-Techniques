@@ -1,0 +1,217 @@
+Copy DB changes
+Change length from char to int for sorting
+Setup site config domainurl
+New column cpid varchar(30) for quoteheader
+New column cpid varchar(30) for cancelledquoteheader
+
+old page data
+
+-- --------------------------------------------------------
+-- Host:                         83.222.229.27
+-- Server version:               5.0.95 - Source distribution
+-- Server OS:                    redhat-linux-gnu
+-- HeidiSQL version:             7.0.0.4140
+-- Date/time:                    2013-07-02 13:20:32
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET FOREIGN_KEY_CHECKS=0 */;
+
+-- Dumping structure for table dtcrmdb.datatech_pagenavigation
+DROP TABLE IF EXISTS `datatech_pagenavigation`;
+CREATE TABLE IF NOT EXISTS `datatech_pagenavigation` (
+  `pagenavigationid` int(11) unsigned NOT NULL auto_increment,
+  `pageid` int(11) NOT NULL,
+  `childpageid` int(11) NOT NULL,
+  `sequence` int(11) NOT NULL,
+  `pagetype` varchar(1) default NULL,
+  `divider` int(11) default NULL,
+  PRIMARY KEY  (`pagenavigationid`),
+  UNIQUE KEY `ix_pagenav` (`pageid`,`childpageid`,`sequence`)
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table dtcrmdb.datatech_pagenavigation: 26 rows
+DELETE FROM `datatech_pagenavigation`;
+/*!40000 ALTER TABLE `datatech_pagenavigation` DISABLE KEYS */;
+INSERT INTO `datatech_pagenavigation` (`pagenavigationid`, `pageid`, `childpageid`, `sequence`, `pagetype`, `divider`) VALUES
+	(1, 1, 1, 1, 'P', 0),
+	(2, 1, 3, 200, 'P', 0),
+	(3, 3, 8, 50, 'P', 0),
+	(4, 3, 15, 400, 'P', 1),
+	(5, 3, 11, 52, 'P', 1),
+	(6, 1, 100, 100, 'P', 1),
+	(7, 1, 110, 110, 'P', 0),
+	(8, 1, 120, 120, 'P', 0),
+	(9, 1, 130, 130, 'P', 0),
+	(10, 1, 140, 140, 'P', 0),
+	(11, 1, 150, 150, 'P', 0),
+	(12, 3, 190, 51, 'P', 0),
+	(13, 3, 210, 170, 'P', 0),
+	(14, 1, 230, 131, 'P', 0),
+	(15, 1, 240, 122, 'P', 1),
+	(16, 1, 300, 141, 'P', 1),
+	(17, 1, 310, 151, 'P', 0),
+	(18, 1, 146, 111, 'P', 1),
+	(19, 1, 152, 124, 'P', 0),
+	(20, 1, 153, 121, 'P', 0),
+	(21, 1, 163, 142, 'P', 1),
+	(22, 3, 164, 900, 'P', 0),
+	(23, 3, 165, 135, 'P', 0),
+	(24, 1, 154, 123, 'P', 0),
+	(25, 1, 166, 112, 'P', NULL),
+	(26, 150, 1000, 1, 'P', 0);
+/*!40000 ALTER TABLE `datatech_pagenavigation` ENABLE KEYS */;
+
+
+-- Dumping structure for table dtcrmdb.datatech_pageroles
+DROP TABLE IF EXISTS `datatech_pageroles`;
+CREATE TABLE IF NOT EXISTS `datatech_pageroles` (
+  `pageroleid` int(11) unsigned NOT NULL auto_increment,
+  `pageid` int(11) NOT NULL,
+  `roleid` varchar(20) NOT NULL,
+  PRIMARY KEY  (`pageroleid`),
+  UNIQUE KEY `ix_pageroles` (`pageid`,`roleid`)
+) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table dtcrmdb.datatech_pageroles: 62 rows
+DELETE FROM `datatech_pageroles`;
+/*!40000 ALTER TABLE `datatech_pageroles` DISABLE KEYS */;
+INSERT INTO `datatech_pageroles` (`pageroleid`, `pageid`, `roleid`) VALUES
+	(1, 1, 'USER'),
+	(2, 2, 'PUBLIC'),
+	(3, 3, 'ADMIN'),
+	(4, 5, 'PUBLIC'),
+	(5, 6, 'PUBLIC'),
+	(6, 8, 'PUBLIC'),
+	(7, 10, 'PUBLIC'),
+	(8, 11, 'ADMIN'),
+	(9, 13, 'ADMIN'),
+	(10, 14, 'PUBLIC'),
+	(11, 15, 'ADMIN'),
+	(12, 16, 'USER'),
+	(13, 100, 'USER'),
+	(14, 110, 'USER'),
+	(15, 111, 'USER'),
+	(16, 120, 'USER'),
+	(17, 130, 'USER'),
+	(18, 140, 'USER'),
+	(19, 150, 'USER'),
+	(20, 170, 'USER'),
+	(21, 180, 'USER'),
+	(22, 190, 'ADMIN'),
+	(23, 200, 'USER'),
+	(24, 210, 'ADMIN'),
+	(25, 220, 'USER'),
+	(26, 230, 'USER'),
+	(27, 240, 'APPROVAL'),
+	(28, 240, 'SCHEDULE'),
+	(29, 240, 'IMPLEMENT'),
+	(30, 240, 'QA'),
+	(31, 240, 'COMPLETE'),
+	(32, 250, 'SCHEDULE'),
+	(33, 260, 'QA'),
+	(34, 270, 'ARCHIVE'),
+	(35, 280, 'COMPLETE'),
+	(36, 290, 'IMPLEMENT'),
+	(37, 300, 'USER'),
+	(38, 310, 'USER'),
+	(39, 320, 'USER'),
+	(40, 290, 'CEAPPROVAL'),
+	(41, 112, 'USER'),
+	(42, 143, 'USER'),
+	(43, 144, 'USER'),
+	(44, 145, 'USER'),
+	(45, 146, 'USER'),
+	(46, 147, 'USER'),
+	(47, 148, 'USER'),
+	(48, 149, 'USER'),
+	(49, 151, 'USER'),
+	(50, 152, 'SUBADMIN'),
+	(51, 153, 'USER'),
+	(52, 163, 'SUBADMIN'),
+	(53, 163, 'SCHEDULE'),
+	(54, 164, 'ADMIN'),
+	(55, 165, 'ADMIN'),
+	(56, 154, 'SUBADMIN'),
+	(57, 156, 'USER'),
+	(58, 157, 'USER'),
+	(59, 2000, 'PUBLIC'),
+	(60, 163, 'PUBLIC'),
+	(61, 166, 'PUBLIC'),
+	(62, 1000, 'MARTIN');
+/*!40000 ALTER TABLE `datatech_pageroles` ENABLE KEYS */;
+
+
+-- Dumping structure for table dtcrmdb.datatech_pages
+DROP TABLE IF EXISTS `datatech_pages`;
+CREATE TABLE IF NOT EXISTS `datatech_pages` (
+  `pageid` int(11) unsigned NOT NULL auto_increment,
+  `pagename` varchar(30) default NULL,
+  `label` varchar(30) default NULL,
+  PRIMARY KEY  (`pageid`),
+  UNIQUE KEY `ix_page` (`pagename`)
+) ENGINE=MyISAM AUTO_INCREMENT=2001 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table dtcrmdb.datatech_pages: 55 rows
+DELETE FROM `datatech_pages`;
+/*!40000 ALTER TABLE `datatech_pages` DISABLE KEYS */;
+INSERT INTO `datatech_pages` (`pageid`, `pagename`, `label`) VALUES
+	(1, 'index.php', 'Dashboard'),
+	(2, 'system-access-denied.php', 'Access Denied'),
+	(3, 'system-admin.php', 'Admin'),
+	(5, 'system-login-timeout.php', 'Session Timeout'),
+	(6, 'system-login-failed.php', 'Login Failed'),
+	(8, 'system-register.php', 'Register New User'),
+	(10, 'system-register-success.php', 'Register Success'),
+	(11, 'system-admin-roles.php', 'Manage Roles'),
+	(13, 'system-register-exec.php', 'Register Save'),
+	(14, 'system-imageviewer.php', 'Image Viewer'),
+	(15, 'dataupload.php', 'Data Upload'),
+	(16, 'confirmedquote.php', 'Quotation Confirmation'),
+	(100, 'profile.php', 'My Profile'),
+	(110, 'quoteentry.php', 'New Quote'),
+	(111, 'newquote.php', 'Definition'),
+	(120, 'listquotes.php', 'List My Quotes'),
+	(130, 'activeorders.php', 'Active Jobs'),
+	(140, 'completedorders.php', 'Complete Jobs'),
+	(150, 'reports.php', 'Reports'),
+	(170, 'processquote.php', 'Process Quote'),
+	(180, 'approval.php', 'Verification'),
+	(190, 'users.php', 'Manage Users'),
+	(200, 'newquoteitem.php', 'Quotation Item'),
+	(210, 'siteconfig.php', 'Site Configuration'),
+	(220, 'editquote.php', 'Edit Quote'),
+	(230, 'activeorderschart.php', 'Active Jobs (Chart)'),
+	(240, 'listallquotes.php', 'List All Quotes'),
+	(250, 'schedule.php', 'Schedule'),
+	(260, 'qa.php', 'QA'),
+	(270, 'handover.php', 'Handover'),
+	(280, 'complete.php', 'Completion'),
+	(290, 'implement.php', 'CE Approval'),
+	(300, 'completeordersgraph.php', 'Complete Jobs (Graphs)'),
+	(310, 'documents.php', 'Documents'),
+	(320, 'viewdocuments.php', 'Documents'),
+	(112, 'newquotesummary.php', 'Definition'),
+	(143, 'cancelledquote.php', 'Cancelled Quotation'),
+	(144, 'processedquote.php', 'Processed Quotation'),
+	(145, 'viewquote.php', 'View Job'),
+	(146, 'throwawayquoteentry.php', 'New Throw Away Quote'),
+	(147, 'newthrowawayquoteitem.php', 'New Throw Away Quote'),
+	(148, 'confirmedthrowawayquote.php', 'Throw Away Quote'),
+	(149, 'newthrowawayquote.php', 'New Throw Away Quote'),
+	(151, 'viewthrowawayquote.php', 'View Throw Away Quote'),
+	(152, 'listcancelledjobs.php', 'List Cancelled Jobs'),
+	(153, 'listmycancelledquotes.php', 'List My Cancelled Quotes'),
+	(163, 'calendar.php', 'Schedule Calendar'),
+	(164, 'runalerts.php', 'Run Alerts'),
+	(165, 'cancellationroute.php', 'Cancellation Routes'),
+	(154, 'listpendingcancelledjobs.php', 'List Pending Cancelled Jobs'),
+	(156, 'confirmcancellation.php', 'Confirm Cancellation'),
+	(157, 'cancelledthrowawayquote.php', 'Confirm Cancellation'),
+	(2000, 'system-login.php', 'Account log in'),
+	(166, 'listmythrowawayquotes.php', 'List My Throw Away Quotes'),
+	(1000, 'report1.php', 'KPI Report');
+/*!40000 ALTER TABLE `datatech_pages` ENABLE KEYS */;
+/*!40014 SET FOREIGN_KEY_CHECKS=1 */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

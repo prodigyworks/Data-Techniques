@@ -1,0 +1,54 @@
+General
+
+Firefox / Chrome don't populate combo.
+
+Panels
+description based on how many to destinations you see in pop up box.
+
+Long lines
+Rename cat2 to copper not copper panel
+Rename cat2 to fibre  not fibre panel
+categoryx to category label
+qty based on how many from and to destinations you see in pop up box.
+
+
+DataUpload
+Longline flagged in the header not the whole table.
+
+
+Newquote	
+
+Include notes for header.
+Include notes for items.
+Validation.
+Tech moves without quote link.
+Tech moves with quote link.
+Labour Only – Round up man days to integer value
+Send approval email.
+Process quote completion 75% done.
+Show site on the quote item as sub total / header.
+Allow documents to be uploaded
+Admin	Allow back to menu from admin menu.
+Show admin landing page.
+Role Management	Allow new roles to added / amended / deleted
+Allow users to be associated with roles
+Site Management	Global site settings. E.g. ROLE name to mail for authorisation, upload folder for shared virtual folder name.
+User Management	Allow users to added / removed / updated etc.
+Allow deputy user to be set up.
+Allow “out of office” setting for each user.
+Security rules, password expiry, password patterns (6 chars mix alpha and numeric).  
+List quotes	Show quotes that are awaiting approval.
+Allow filtering of quote items by user and site.
+Approval	New page showing brief information regarding the quote to be approved. 
+Allow APPROVE or NOT APPROVE 
+Allow notes to be entered.
+Allow documents to be uploaded 
+List Jobs / Orders	Show approved orders.
+Reports	Show graphs per cost code.
+Allow break down into client / category etc.
+Data upload	Populate client / project drop down list. At present this is hard coded to Test client 1 to 5.
+Include rates for tech moves
+Schedule	Auto reminder of unanswered approval notices
+Completed Orders	Show completed orders
+Installation and config	
+	
