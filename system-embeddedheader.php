@@ -26,7 +26,7 @@
 		}
 	?>
 	
-	<form method="POST" id="commandForm" name="commandForm">
+	<form method="post" id="commandForm" name="commandForm">
 		<input type="hidden" id="command" name="command" />
 		<input type="hidden" id="pk1" name="pk1" />
 		<input type="hidden" id="pk2" name="pk2" />
